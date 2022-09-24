@@ -19,11 +19,11 @@ class ImageResizeService
                 'filter' => $filter,
                 'filename' => $filename
             ] = $settings;
+
             if (str_contains($filename,'_')){
                 $file = explode('_',$filename);
                 File::ensureDirectoryExists(public_path('uploads/'.$module.'/'.$filter));
-                $image = Image::make(public_path('uploads/'.$module.'/'.'originals/'.$file[0].'.'.$file[1]));
-
+                $image = Image::make(public_path('uploads/'.$module.'/originals/'.$file[0].'.'.$file[1]));
                 $image->resize($this->{$filter}['width'],$this->{$filter}['height'],function($constraint){
                   $constraint->aspectRatio();
                   $constraint->upsize();

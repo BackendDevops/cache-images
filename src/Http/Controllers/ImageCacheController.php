@@ -11,13 +11,23 @@ class ImageCacheController extends Controller
     {
     }
 
-    public function index(string  $filter   , string $filename, string $module="")
+    public function index(string  $filter   , string $module="", string $filename,)
     {
         $settings = [
             'filter' => $filter,
             'module' => $module,
             'filename' => $filename
         ];
+        return $this->cacheImageService->cacheImages($settings);
+    }
+
+    public function withoutModule(string  $filter  , string $filename,)
+    {
+        $settings = [
+            'filter' => $filter,
+            'filename' => $filename
+        ];
+        $settings['module'] = '';
         return $this->cacheImageService->cacheImages($settings);
     }
 }
