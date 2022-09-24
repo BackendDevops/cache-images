@@ -6,4 +6,3 @@ Route::get('image-repo/{filter}/{filename}', [ImageCacheController::class,'witho
     ->name('kvnc_image_cache.cache')->middleware('image-cache');
 Route::get('image-repo/{filter}/{module}//{filename}', [ImageCacheController::class,'index'])
     ->name('kvnc_image_cache.cache')->middleware('image-cache');
-Route::
