@@ -27,5 +27,9 @@ class CacheImageProvider extends ServiceProvider
     public function boot(Router $router)
     {
         $router->aliasMiddleware('image-cache',CacheImageMiddleware::class);
+        $this->publishes([
+            __DIR__.'/config/cache-image.php' => config_path('cache-image')
+            , 'config'
+        ]);
     }
 }

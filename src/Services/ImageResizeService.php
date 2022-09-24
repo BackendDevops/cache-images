@@ -11,8 +11,15 @@ class ImageResizeService
     protected array $small = ['width' => 360, 'height' => 190]; // listing card
     protected array $medium = ['width'=> 600 ,'height' => 400];
     protected array $large = ['width' => 1280, 'height' => 900];
+    protected  array $config;
+    public Image $image;
 
-        public function resize(array $settings)
+    public function __construct()
+    {
+        $this->config = config('cache-image');
+    }
+
+    public function resize(array $settings)
         {
             [
                 'module' => $module,
@@ -23,13 +30,31 @@ class ImageResizeService
             if (str_contains($filename,'_')){
                 $file = explode('_',$filename);
                 File::ensureDirectoryExists(public_path('uploads/'.$module.'/'.$filter));
-                $image = Image::make(public_path('uploads/'.$module.'/originals/'.$file[0].'.'.$file[1]));
-                $image->resize($this->{$filter}['width'],$this->{$filter}['height'],function($constraint){
-                  $constraint->aspectRatio();
-                  $constraint->upsize();
-                })->save(public_path('uploads/'.$module.'/'.$filter."/".$file[0].".webp"),100,'webp');
-               return $image->response('webp',100);
+                $this->image = Image::make(public_path('uploads/'.$module.'/originals/'.$file[0].'.'.$file[1]));
+
+               return $this->process($filter,$module,$file)->response('webp',100);
             }
 
         }
+
+        protected function process( string $filter, string $module, array $file): Image
+        {
+            if ($this->image->width() >= $this->image->height()){
+                $this->image->resize($this->config['filters'][$filter]['width'],null,function ($constraint){
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+            }
+            if ($this->image->width() < $this->image->height()){
+                $this->image->resize(null,$this->config['filters'][$filter]['width'],function ($constraint){
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+            }
+            $path = $this->config['mapping'][$module]."/".$filter."/".implode('.',$file);
+            $this->image->save(public_path($path));
+            return $this->image;
+        }
+
+
 }
