@@ -1,0 +1,33 @@
+{
+    "name": "kvnc/cache-images",
+    "description": "This package adds image cache to laravel",
+    "type": "library",
+    "require": {
+        "php" : "8.0.*",
+        "illuminate/support": ">=5.7.19",
+        "intervention/image": "^2.0",
+        "intervention/imagecache": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kvnc\\CacheImages\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel" : {
+            "providers" : [
+                "\\Kvnc\\CacheImages\\CacheImageProvider"
+            ],
+            "aliases" : {
+                "CacheImages": "\\Kvnc\\CacheImages\\CacheImages"
+            }
+        }
+    },
+    "authors": [
+        {
+            "name": "Kıvanç İnci",
+            "email": "kivanc.inci83@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
