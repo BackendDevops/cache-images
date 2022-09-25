@@ -50,8 +50,8 @@ class ImageResizeService
                     $constraint->upsize();
                 });
             }
-            $path = $this->config['mapping'][$module]."/".$filter."/".implode('.',$file);
-            $image->save(public_path($path));
+            $path = public_path('uploads/'.$module.'/'.$filter.'/'.implode('.',$file));
+            $image->save($path);
             return $image->response('webp',100);
         }
 
