@@ -31,7 +31,7 @@ class ImageResizeService
                 File::ensureDirectoryExists(public_path('uploads/'.$module.'/'.$filter));
                 $image = Image::make(public_path('uploads/'.$module.'/originals/'.$file[0].'.'.$file[1]));
 
-               return $this->process($filter,$module,$file);
+               return $this->process($image,$filter,$module,$file);
             }
 
         }
