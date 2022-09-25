@@ -28,7 +28,7 @@ class CacheImageProvider extends ServiceProvider
     {
         $router->aliasMiddleware('image-cache',CacheImageMiddleware::class);
         $this->publishes([
-            __DIR__.'/config/cache-image.php' => config_path('cache-image')
+            __DIR__.'/config/cache-image.php' => config_path('cache-image.php')
             , 'config'
         ]);
     }

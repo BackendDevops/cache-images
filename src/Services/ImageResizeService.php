@@ -12,7 +12,7 @@ class ImageResizeService
     protected array $medium = ['width'=> 600 ,'height' => 400];
     protected array $large = ['width' => 1280, 'height' => 900];
     protected  array $config;
-    public Image $image;
+    public Intervention\Image\Image $image;
 
     public function __construct()
     {
