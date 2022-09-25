@@ -36,7 +36,7 @@ class ImageResizeService
 
         }
 
-        protected function process( Image $image,string $filter, string $module, array $file)
+        protected function process( \Intervention\Image\Image $image,string $filter, string $module, array $file)
         {
             if ($image->width() >= $image->height()){
                 $image->resize($this->config['filters'][$filter]['width'],null,function ($constraint){
