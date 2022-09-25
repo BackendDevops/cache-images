@@ -40,12 +40,13 @@ class CacheImageMiddleware
         $file = explode('_',$filename);
         $filename = $file[0];
         $config = config('cache-image');
-        $path_to_check = $config['mapping'][$module].'/'.$filter.'/'.$filename."webp";
+        $path = public_path('uploads/'.$module.'/'.$filter.'/'.$filename.".webp");
 
-        $is_exists = File::exists(public_path($path_to_check));
+
+        $is_exists = File::exists(public_path($path));
 
         if ($is_exists){
-            $image = Image::make($path_to_check);
+            $image = Image::make($path);
             $response = Response::make($image);
             $response->header('Content-Type', 'image/webp');
             return $response;

@@ -29,7 +29,8 @@ class ImageResizeService
             if (str_contains($filename,'_')){
                 $file = explode('_',$filename);
                 File::ensureDirectoryExists(public_path('uploads/'.$module.'/'.$filter));
-                $image = Image::make(public_path('uploads/'.$module.'/originals/'.$file[0].'.'.$file[1]));
+                $original_file_path = $this->config['mapping'][$module].implode('.',$file);
+                $image = Image::make(public_path($original_file_path));
 
                return $this->process($image,$filter,$module,$file);
             }
