@@ -31,7 +31,7 @@ class ImageResizeService
                 File::ensureDirectoryExists(public_path('uploads/'.$module.'/'.$filter));
                 $image = Image::make(public_path('uploads/'.$module.'/originals/'.$file[0].'.'.$file[1]));
 
-               return $this->process($filter,$module,$file)->response('webp',100);
+               return $this->process($filter,$module,$file);
             }
 
         }
@@ -52,7 +52,7 @@ class ImageResizeService
             }
             $path = $this->config['mapping'][$module]."/".$filter."/".implode('.',$file);
             $image->save(public_path($path));
-            return $image;
+            return $image->response('webp',100);
         }
 
 
