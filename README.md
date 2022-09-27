@@ -53,6 +53,7 @@ function getResizedImageUrl($filter,$module,$image_url): string
 Call ```getResizedImageUrl ``` in any image tag you need
 
 Have fun
+Thanks for reading
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/kvncphp)
 
