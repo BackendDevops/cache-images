@@ -3,7 +3,7 @@
     "description": "This package adds image cache to laravel",
     "type": "library",
     "license": ["MIT"],
-    "version": "1.0.5-stable",
+    "version": "1.0.6-stable",
     "require": {
         "php" : "8.0.*",
         "illuminate/support": ">=5.7.19",
