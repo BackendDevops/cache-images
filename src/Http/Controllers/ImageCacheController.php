@@ -30,4 +30,9 @@ class ImageCacheController extends Controller
         $settings['module'] = '';
         return $this->cacheImageService->cacheImages($settings);
     }
+
+    public function s3Upload(Request $request)
+    {
+        
+    }
 }
