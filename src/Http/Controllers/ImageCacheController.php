@@ -33,6 +33,6 @@ class ImageCacheController extends Controller
 
     public function s3Upload(Request $request)
     {
-        
+
     }
 }
