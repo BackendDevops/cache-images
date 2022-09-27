@@ -31,5 +31,6 @@ class CacheImageProvider extends ServiceProvider
             __DIR__.'/config/cache-image.php' => config_path('cache-image.php')
             , 'config'
         ]);
+        include __DIR__.'/Helpers/BaseImageHelper.php';
     }
 }
