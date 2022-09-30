@@ -1,3 +1,8 @@
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/kvnc/cache-images.svg?style=flat-square)](https://packagist.org/packages/kvnc/cache-images)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/kvnc/resize-images/run-tests?label=tests)](https://github.com/kvnc/resize-images/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/kvnc/resize-images/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/kvnc/resize-images/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/kvnc/cache-images.svg?style=flat-square)](https://packagist.org/packages/kvnc/cache-images)
+
 ## Introduction
 Welcome to my first laravel library
 
