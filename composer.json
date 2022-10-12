@@ -5,7 +5,7 @@
     "license": ["MIT"],
     "version": "1.0.6-stable",
     "require": {
-        "php" : "8.0.*",
+        "php" : "8.*",
         "illuminate/support": ">=5.7.19",
         "intervention/image": "^2.0",
         "intervention/imagecache": "^2.5"
