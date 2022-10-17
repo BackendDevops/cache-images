@@ -11,7 +11,7 @@ class ImageCacheController extends Controller
     {
     }
 
-    public function index(string  $filter   , string $module="", string $filename,)
+    public function index(string  $filter   , string $module, string $filename,)
     {
         $settings = [
             'filter' => $filter,
